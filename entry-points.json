@@ -1,0 +1,27 @@
+{
+  "$schema": "https://cloud.uipath.com/draft/2024-12/entry-point",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "817995eb-1b37-43b7-adcd-c4a3ca340a17",
+      "type": "process",
+      "input": {
+        "type": "object",
+        "properties": {
+          "in_OrchestratorQueueName": {
+            "type": "string",
+            "description": "Allows the Orchestrator queue name to be passed as an argument, instead of only being defined in the configuration file.",
+            "x-default-expression": "\"BIST_Missing_Report_Yearly\"",
+            "default": "BIST_Missing_Report_Yearly"
+          },
+          "in_Frequency": {
+            "type": "string",
+            "x-default-expression": "\"Y\"",
+            "default": "Y"
+          }
+        },
+        "required": []
+      }
+    }
+  ]
+}
