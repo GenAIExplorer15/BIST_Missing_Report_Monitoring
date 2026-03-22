@@ -113,11 +113,7 @@
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Frequency_Quaterly" sap:VirtualizedContainerService.HintSize="1130,2319.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="Source">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:String">Frequency_Quaterly.xaml</Literal>
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:String" Default="Frequency_Quaterly.xaml" Name="Source" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -181,7 +177,7 @@
                       <OutArgument x:TypeArguments="x:String">[QuaterlyFolder]</OutArgument>
                     </ui:AssignOperation.To>
                     <ui:AssignOperation.Value>
-                      <InArgument x:TypeArguments="x:String">["q"+Now.ToString+CurrentQuater.ToString("00")]</InArgument>
+                      <InArgument x:TypeArguments="x:String">["q"+Now.Year.ToString+CurrentQuater.ToString("00")]</InArgument>
                     </ui:AssignOperation.Value>
                   </ui:AssignOperation>
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -209,7 +205,14 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:MultipleAssign>
-            <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="478.4,112.8" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[InputFolder+&quot;\&quot;+QuaterlyFolder]" />
+            <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="478.4,112.8" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[InputFolder+&quot;\&quot;+QuaterlyFolder]">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CreateDirectory>
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="478.4,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Menu Path 1 : &quot; + in_MENU_PATH_1]" />
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="478.4,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Menu Path 2 : &quot; + in_MENU_PATH_2]">
               <sap:WorkflowViewStateService.ViewState>
